@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      // create: (context) => OnboardingCubit(),
       create: (context) => OnboardingBloc(),
       child: MaterialApp(
         title: 'Flutter Demo',
