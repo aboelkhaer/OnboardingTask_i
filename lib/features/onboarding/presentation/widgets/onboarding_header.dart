@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_i/core/utilities/images.dart';
 import '../bloc/onboarding_bloc.dart';
 
 class OnboardingHeader extends StatelessWidget {
@@ -16,7 +17,7 @@ class OnboardingHeader extends StatelessWidget {
         children: [
           Positioned(
             top: 0,
-            bottom: 0,
+            bottom: 10,
             left: 20,
             child: BlocBuilder<OnboardingBloc, ChangeOnboardingState>(
               builder: (context, state) {
@@ -40,20 +41,31 @@ class OnboardingHeader extends StatelessWidget {
             ),
           ),
           Center(
-            child: Column(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'circles',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                  ),
+                Image.asset(
+                  AppImages.group,
+                  width: 48.02,
+                  height: 44,
                 ),
-                Text(
-                  'association',
-                  style: TextStyle(fontSize: 13, color: Colors.grey[400]),
+                const SizedBox(width: 12),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'circles',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    Text(
+                      'association',
+                      style: TextStyle(fontSize: 13, color: Color(0xFF333333)),
+                    ),
+                  ],
                 ),
               ],
             ),

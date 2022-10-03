@@ -1,4 +1,4 @@
-import '../../../../core/images.dart';
+import '../../../../core/utilities/images.dart';
 import '../../domain/entities/onboarding_entity.dart';
 
 List<OnboardingEntity> onbordingData = [

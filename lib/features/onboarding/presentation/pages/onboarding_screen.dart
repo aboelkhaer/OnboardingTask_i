@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_i/features/onboarding/presentation/widgets/onboarding_background.dart';
 import '../widgets/onboarding_body.dart';
 import '../widgets/onboarding_dots.dart';
 import '../widgets/onboarding_footer.dart';
@@ -13,6 +14,7 @@ class OnboardingScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: const [
+          OnboardingBackground(),
           OnboardingBody(),
           OnboardingDots(),
           OnboardingFooter(),
