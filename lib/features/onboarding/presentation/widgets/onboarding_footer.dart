@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_i/core/utilities/colors.dart';
 import '../../data/datasources/onboarding_datasource.dart';
 import '../bloc/onboarding_bloc.dart';
 
@@ -34,7 +35,7 @@ class OnboardingFooter extends StatelessWidget {
                     state.pageIndex == onbordingData.length - 1 ? '' : 'Skip',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                      color: Color(0XFF333333),
                     ),
                   ),
                 );
@@ -56,7 +57,7 @@ class OnboardingFooter extends StatelessWidget {
                                 curve: Curves.ease)
                         : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green[300],
+                      backgroundColor: AppColors.primary,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)),

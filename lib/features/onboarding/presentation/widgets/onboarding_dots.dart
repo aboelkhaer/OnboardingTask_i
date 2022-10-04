@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_i/core/utilities/colors.dart';
 import '../../data/datasources/onboarding_datasource.dart';
 import '../bloc/onboarding_bloc.dart';
 
@@ -21,7 +22,7 @@ class OnboardingDots extends StatelessWidget {
             dotsCount: onbordingData.length,
             position: state.pageIndex.toDouble(),
             decorator: DotsDecorator(
-              activeColor: Colors.green[300],
+              activeColor: AppColors.primary,
               color: Colors.green.shade100,
               size: const Size(13.0, 5.0),
               activeSize: const Size(30.0, 5.0),
