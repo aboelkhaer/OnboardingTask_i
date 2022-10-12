@@ -11,6 +11,7 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return ScrollConfiguration(
       behavior: NoGlow(),
       child: PageView.builder(
@@ -23,24 +24,24 @@ class OnboardingBody extends StatelessWidget {
         itemBuilder: ((contex, index) {
           return Column(
             children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.17),
+              SizedBox(height: size.height * 0.17),
               Image.asset(
                 onbordingData[index].image,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.38,
+                height: size.height * 0.38,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              SizedBox(height: size.height * 0.03),
               Text(
                 onbordingData[index].title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+              SizedBox(height: size.height * 0.01),
             ],
           );
         }),
