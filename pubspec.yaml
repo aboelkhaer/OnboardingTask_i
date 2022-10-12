@@ -29,13 +29,19 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  country_phone_code_picker: ^0.0.41
   cupertino_icons: ^1.0.2
   dots_indicator: ^2.0.0
   equatable: ^2.0.5
+  fl_country_code_picker: ^0.0.3+1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_staggered_animations: ^1.1.1
   google_fonts: ^3.0.1
+  im_stepper: ^1.0.1+1
+  percent_indicator: ^4.2.2
+  step_progress_indicator: ^1.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -64,10 +70,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: ITC Avant Garde Gothic
+      fonts:
+        - asset: assets/fonts/ITC Avant Garde Gothic CE Book/ITC Avant Garde Gothic CE
+            Book.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
