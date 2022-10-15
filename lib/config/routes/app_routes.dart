@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_i/features/SignUp/presentation/pages/add_phone.dart';
+import 'package:task_i/features/SignUp/presentation/pages/auth_screen.dart';
 import 'package:task_i/features/Splash/presentation/pages/splash_screen/splash_screen_page.dart';
 import 'package:task_i/features/onboarding/presentation/pages/onboarding_screen.dart';
 
@@ -14,7 +14,7 @@ class AppRoutes {
     switch (settings.name) {
       case Routes.initialRoute:
         return MaterialPageRoute(
-          builder: (context) => const AddPhoneScreen(),
+          builder: (context) => const SplashScreen(),
         );
       case Routes.onboardingRoute:
         return MaterialPageRoute(

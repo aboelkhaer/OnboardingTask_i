@@ -21,7 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 75,
       child: TextFormField(
         validator: (value) {
           return value!.isNotEmpty ? null : validateMsg;
@@ -45,10 +45,10 @@ class CustomTextFormField extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: Colors.red)),
           focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: Colors.red)),
         ),
       ),
