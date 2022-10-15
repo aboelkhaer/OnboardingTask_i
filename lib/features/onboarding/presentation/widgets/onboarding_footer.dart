@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_i/core/utilities/colors.dart';
-import 'package:task_i/features/SignUp/presentation/pages/auth_screen.dart';
+import 'package:task_i/features/Auth/presentation/pages/auth_screen.dart';
 import '../../data/datasources/onboarding_datasource.dart';
 import '../bloc/onboarding_bloc.dart';
 

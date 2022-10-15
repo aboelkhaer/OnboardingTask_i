@@ -24,7 +24,12 @@ class CustomTextFormField extends StatelessWidget {
       height: 75,
       child: TextFormField(
         validator: (value) {
-          return value!.isNotEmpty ? null : validateMsg;
+          // return value!.isNotEmpty ? null : validateMsg;
+          if (value!.length < 8) {
+            return validateMsg;
+          } else {
+            return null;
+          }
         },
         controller: controller,
         keyboardType: textInputType,

@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:country_phone_code_picker/country_phone_code_picker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,27 +12,35 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   CountryController countryController = CountryController();
   int currentStep = 1;
-  AuthCubit() : super(const ChangeStepState(currentStep: 1));
+  double hulfStep = 1.0;
+  AuthCubit() : super(const ChangeStepState(currentStep: 1, hulfStep: 1.0));
 
   changeStepToForward() {
-    if (currentStep == 2) {
+    if (hulfStep == 1.5) {
       if (formKey.currentState!.validate()) {
-        currentStep = 3;
-        emit(ChangeStepState(currentStep: currentStep));
+        hulfStep = 2.0;
+        currentStep = 2;
+        emit(ChangeStepState(currentStep: currentStep, hulfStep: hulfStep));
       }
     }
-    if (currentStep == 1) {
+    if (hulfStep == 1.0) {
       if (formKey.currentState!.validate()) {
-        currentStep = 2;
-        emit(ChangeStepState(currentStep: currentStep));
+        hulfStep = 1.5;
+        emit(ChangeStepState(currentStep: currentStep, hulfStep: hulfStep));
       }
     }
   }
 
   changStepToBack() {
-    if (currentStep > 1) {
-      currentStep = currentStep - 1;
-      emit(ChangeStepState(currentStep: currentStep));
+    if (hulfStep == 2.0) {
+      hulfStep = 1.5;
+      currentStep = 2;
+      emit(ChangeStepState(currentStep: currentStep, hulfStep: hulfStep));
+    }
+    if (hulfStep == 1.5) {
+      hulfStep = 1.0;
+      currentStep = 1;
+      emit(ChangeStepState(currentStep: currentStep, hulfStep: hulfStep));
     }
   }
 }

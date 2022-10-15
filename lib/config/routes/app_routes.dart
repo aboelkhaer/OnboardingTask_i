@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_i/features/SignUp/presentation/pages/auth_screen.dart';
+import 'package:task_i/features/Auth/presentation/pages/auth_screen.dart';
 import 'package:task_i/features/Splash/presentation/pages/splash_screen/splash_screen_page.dart';
 import 'package:task_i/features/onboarding/presentation/pages/onboarding_screen.dart';
 

@@ -9,9 +9,14 @@ abstract class AuthState extends Equatable {
 
 class ChangeStepState extends AuthState {
   final int currentStep;
+  final double hulfStep;
   const ChangeStepState({
     required this.currentStep,
+    required this.hulfStep,
   });
   @override
-  List<Object> get props => [currentStep];
+  List<Object> get props => [
+        currentStep,
+        hulfStep,
+      ];
 }

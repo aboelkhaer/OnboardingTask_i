@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:task_i/core/utilities/colors.dart';
-import 'package:task_i/features/SignUp/presentation/cubit/auth_cubit.dart';
+import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
 
 class AuthHeader extends StatelessWidget {
   const AuthHeader({

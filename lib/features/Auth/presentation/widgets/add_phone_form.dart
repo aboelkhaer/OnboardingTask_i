@@ -1,9 +1,8 @@
 import 'package:country_phone_code_picker/core/country_phone_code_picker_widget.dart';
 import 'package:country_phone_code_picker/models/country.dart';
 import 'package:flutter/material.dart';
-import 'package:task_i/core/widgets/custom_text_form_field.dart';
-import 'package:task_i/features/SignUp/presentation/cubit/auth_cubit.dart';
-import 'package:task_i/features/SignUp/presentation/widgets/shared_form.dart';
+import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
+import 'package:task_i/features/Auth/presentation/widgets/shared_form.dart';
 
 class AddPhoneForm extends StatelessWidget {
   const AddPhoneForm({

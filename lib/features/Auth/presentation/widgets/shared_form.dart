@@ -24,7 +24,7 @@ class SharedForm extends StatelessWidget {
       child: CustomTextFormField(
         controller: textFieldController,
         title: title,
-        validateMsg: 'Enter your data, please',
+        validateMsg: 'Enter your data 8 char at least, please',
         textInputType: textInputType,
         prefix: prefix,
       ),

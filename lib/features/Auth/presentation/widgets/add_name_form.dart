@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:task_i/features/SignUp/presentation/cubit/auth_cubit.dart';
-import 'package:task_i/features/SignUp/presentation/widgets/shared_form.dart';
+
+import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
+import 'package:task_i/features/Auth/presentation/widgets/shared_form.dart';
 
 class AddNameForm extends StatelessWidget {
   const AddNameForm({super.key});
