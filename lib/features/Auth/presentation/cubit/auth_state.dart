@@ -20,3 +20,7 @@ class ChangeStepState extends AuthState {
         hulfStep,
       ];
 }
+
+class OtpSuccessLoadingState extends AuthState {}
+
+class OtpSuccessLoadedState extends AuthState {}

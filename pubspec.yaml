@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.1.1
+  country_list_pick: ^1.0.1+6
   country_phone_code_picker: ^0.0.41
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
@@ -40,9 +42,12 @@ dependencies:
   flutter_bloc: ^8.1.1
   flutter_staggered_animations: ^1.1.1
   flutter_verification_code: ^1.1.6
+  fluttertoast: ^8.1.1
   google_fonts: ^3.0.1
+  http: ^0.13.5
   im_stepper: ^1.0.1+1
   percent_indicator: ^4.2.2
+  scroll_snap_list: ^0.9.1
   step_progress_indicator: ^1.0.2
 
 dev_dependencies:

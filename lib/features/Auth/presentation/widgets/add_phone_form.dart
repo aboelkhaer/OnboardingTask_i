@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:country_list_pick/country_list_pick.dart';
 import 'package:country_phone_code_picker/core/country_phone_code_picker_widget.dart';
 import 'package:country_phone_code_picker/models/country.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +19,14 @@ class AddPhoneForm extends StatelessWidget {
       textFieldController: AuthCubit.get(context).phoneController,
       title: '',
       textInputType: TextInputType.phone,
-      prefix: CountryPhoneCodePicker.withDefaultSelectedCountry(
-        defaultCountryCode: Country(
-          name: 'Egypt',
-          countryCode: 'EG',
-          phoneCode: ' +20',
-        ),
-        showPhoneCode: true,
-        width: 120,
-        contentPadding: const EdgeInsets.only(left: 10, bottom: 5),
-        flagHeight: 25,
-        flagWidth: 25,
-        searchBarHintText: 'Search by name',
-        countryPhoneCodeTextStyle: const TextStyle(fontSize: 16),
-        actionIcon: const Icon(
-          Icons.keyboard_arrow_down_rounded,
-        ),
+      prefix: CountryListPick(
+        theme: CountryTheme(isShowTitle: false, initialSelection: '+20'),
+        initialSelection: '+20',
+        onChanged: (CountryCode? code) {
+          log(code!.code.toString());
+        },
+        useUiOverlay: true,
+        useSafeArea: true,
       ),
     );
   }

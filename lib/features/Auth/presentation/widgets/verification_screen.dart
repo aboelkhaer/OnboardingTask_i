@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:task_i/core/utilities/colors.dart';
+import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});
@@ -10,7 +13,10 @@ class VerificationScreen extends StatelessWidget {
     return Column(
       children: [
         VerificationCode(
-          onCompleted: (val) {},
+          onCompleted: (val) {
+            AuthCubit.get(context).otpString = val;
+            // log(AuthCubit.get(context).otpString);
+          },
           onEditing: (val) {},
           keyboardType: TextInputType.number,
           fullBorder: true,
