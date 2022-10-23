@@ -6,9 +6,7 @@ import '../../data/datasources/onboarding_datasource.dart';
 import '../bloc/onboarding_bloc.dart';
 
 class OnboardingFooter extends StatelessWidget {
-  const OnboardingFooter({
-    Key? key,
-  }) : super(key: key);
+  const OnboardingFooter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +57,7 @@ class OnboardingFooter extends StatelessWidget {
                         : Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const AddPhoneScreen())),
+                                builder: (context) => AddPhoneScreen())),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       elevation: 0,
