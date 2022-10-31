@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_i/config/routes/app_routes.dart';
 import 'package:task_i/core/utilities/colors.dart';
 import 'package:task_i/core/widgets/custom_botton.dart';
-import 'package:task_i/features/Auth/data/models/user_model.dart';
 import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:task_i/features/Auth/presentation/widgets/add_name_form.dart';
 import 'package:task_i/features/Auth/presentation/widgets/add_phone_form.dart';
@@ -31,17 +29,8 @@ class AddPhoneScreen extends StatelessWidget {
                 SizedBox(height: size.height * 0.03),
                 BlocBuilder<AuthCubit, AuthState>(
                   builder: (context, state) {
-                    if (state is ChangeStepState) {
-                      return Text(
-                        'STEP ${state.currentStep}/4',
-                        style: TextStyle(
-                            fontFamily: 'ITC Avant Garde Gothic',
-                            fontSize: 18,
-                            color: AppColors.primary),
-                      );
-                    }
                     return Text(
-                      'STEP 1/4',
+                      'STEP ${AuthCubit.get(context).currentStep}/4',
                       style: TextStyle(
                           fontFamily: 'ITC Avant Garde Gothic',
                           fontSize: 18,
@@ -52,30 +41,29 @@ class AddPhoneScreen extends StatelessWidget {
                 const SizedBox(height: 15),
                 BlocBuilder<AuthCubit, AuthState>(
                   builder: (context, state) {
-                    if (state is ChangeStepState) {
-                      if (state.hulfStep == 2) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Verification your number',
-                              style: TextStyle(
-                                  fontFamily: 'ITC Avant Garde Gothic',
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'We have send the verification code\nto ${AuthCubit.get(context).phoneController.text.replaceRange(3, 8, '*****')} Change?',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontFamily: 'ITC Avant Garde Gothic',
-                                  fontSize: 14,
-                                  color: AppColors.grey),
-                            ),
-                          ],
-                        );
-                      }
+                    if (AuthCubit.get(context).hulfStep == 2) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Verification your number',
+                            style: TextStyle(
+                                fontFamily: 'ITC Avant Garde Gothic',
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'We have send the verification code\nto ${AuthCubit.get(context).phoneController.text.replaceRange(3, 8, '*****')} Change?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'ITC Avant Garde Gothic',
+                                fontSize: 14,
+                                color: AppColors.grey),
+                          ),
+                        ],
+                      );
                     }
+
                     return BlocBuilder<AuthCubit, AuthState>(
                       builder: (context, state) {
                         return Column(
@@ -113,25 +101,15 @@ class AddPhoneScreen extends StatelessWidget {
                         children: [
                           BlocBuilder<AuthCubit, AuthState>(
                             builder: (context, state) {
-                              if (state is ChangeStepState) {
-                                return Text(
-                                  state.hulfStep == 1.5
-                                      ? 'Your name'
-                                      : state.hulfStep == 2.0
-                                          ? 'Verification Code'
-                                          : state.hulfStep == 2.5
-                                              ? ''
-                                              : 'Your number',
-                                  style: TextStyle(
-                                    fontFamily: 'ITC Avant Garde Gothic',
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                  ),
-                                );
-                              }
                               return Text(
-                                'Your number',
-                                style: TextStyle(
+                                AuthCubit.get(context).hulfStep == 1.5
+                                    ? 'Your name'
+                                    : AuthCubit.get(context).hulfStep == 2.0
+                                        ? 'Verification Code'
+                                        : AuthCubit.get(context).hulfStep == 2.5
+                                            ? ''
+                                            : 'Your number',
+                                style: const TextStyle(
                                   fontFamily: 'ITC Avant Garde Gothic',
                                   fontSize: 14,
                                   color: Colors.black,
@@ -144,41 +122,47 @@ class AddPhoneScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       BlocBuilder<AuthCubit, AuthState>(
                         builder: (context, state) {
-                          if (state is ChangeStepState) {
-                            if (state.hulfStep == 1.0 &&
-                                state.currentStep == 1) {
-                              return const AddPhoneForm();
-                            }
-                            if (state.hulfStep == 1.5) {
-                              return const AddNameForm();
-                            }
-                            if (state.hulfStep == 2.0) {
-                              return const VerificationScreen();
-                            }
-                            if (state.hulfStep == 2.5) {
-                              return const SelectProfilePicture();
-                            }
+                          if (AuthCubit.get(context).hulfStep == 1.0) {
+                            return const AddPhoneForm();
                           }
-                          return CircularProgressIndicator(
-                              color: AppColors.primary);
+
+                          if (AuthCubit.get(context).hulfStep == 1.5) {
+                            return const AddNameForm();
+                          }
+                          if (AuthCubit.get(context).hulfStep == 2.0) {
+                            return const VerificationScreen();
+                          }
+                          if (AuthCubit.get(context).hulfStep == 2.5) {
+                            return const SelectProfilePicture();
+                          } else {
+                            return const SizedBox.shrink();
+                          }
                         },
                       ),
                       const SizedBox(height: 50),
-                      CustomButtom(
-                        title: AuthCubit.get(context).hulfStep == 2.5
-                            ? 'Continue'
-                            : 'Next',
-                        onPressed: () {
-                          if (AuthCubit.get(context).hulfStep == 2.0) {
-                            AuthCubit.get(context)
-                                .sendVerificationCode(context);
-                            // return OtpSuccess();
-                          } else if (AuthCubit.get(context).hulfStep == 1.5) {
-                            AuthCubit.get(context).registerUser();
-                          } else {}
-                          if (AuthCubit.get(context).hulfStep == 1.0) {
-                            AuthCubit.get(context).changeStepToForward();
+                      BlocBuilder<AuthCubit, AuthState>(
+                        builder: (context, state) {
+                          if (state is LoadingUserDataState) {
+                            return CircularProgressIndicator(
+                                color: AppColors.primary);
                           }
+                          return CustomButtom(
+                            title: AuthCubit.get(context).hulfStep == 2.5
+                                ? 'Continue'
+                                : 'Next',
+                            onPressed: () {
+                              if (AuthCubit.get(context).hulfStep == 2.0) {
+                                AuthCubit.get(context).sendVerificationCode();
+                              } else if (AuthCubit.get(context).hulfStep ==
+                                  1.5) {
+                                AuthCubit.get(context).registerUser();
+                              } else {}
+                              if (AuthCubit.get(context).hulfStep == 1.0) {
+                                AuthCubit.get(context).changeStepToForward();
+                              }
+                              FocusScope.of(context).requestFocus(FocusNode());
+                            },
+                          );
                         },
                       ),
                     ],
@@ -191,14 +175,8 @@ class AddPhoneScreen extends StatelessWidget {
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               if (state is OtpSuccessLoadingState) {
-                return OtpSuccess();
+                return const OtpSuccess();
               }
-              // if (state is OtpSuccessLoadedState) {
-              //   Navigator.pushReplacement(
-              //       context,
-              //       MaterialPageRoute(
-              //           builder: (context) => OnboardingScreen()));
-              // }
 
               return const SizedBox.shrink();
             },

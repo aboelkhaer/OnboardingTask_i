@@ -30,11 +30,17 @@ class OnboardingFooter extends StatelessWidget {
                         duration: const Duration(milliseconds: 150),
                         curve: Curves.ease,
                       )),
-                  child: Text(
-                    state.pageIndex == onbordingData.length - 1 ? '' : 'Skip',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0XFF333333),
+                  child: Container(
+                    width: 100,
+                    height: 60,
+                    color: Colors.transparent,
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      state.pageIndex == onbordingData.length - 1 ? '' : 'Skip',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color(0XFF333333),
+                      ),
                     ),
                   ),
                 );
@@ -57,7 +63,7 @@ class OnboardingFooter extends StatelessWidget {
                         : Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AddPhoneScreen())),
+                                builder: (context) => const AddPhoneScreen())),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       elevation: 0,

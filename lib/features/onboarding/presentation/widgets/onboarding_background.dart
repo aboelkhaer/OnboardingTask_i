@@ -8,7 +8,7 @@ class OnboardingBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: MediaQuery.of(context).size.height,
       child: Image.asset(
