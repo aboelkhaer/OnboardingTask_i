@@ -1,8 +1,5 @@
 import 'dart:developer';
-
 import 'package:country_list_pick/country_list_pick.dart';
-import 'package:country_phone_code_picker/core/country_phone_code_picker_widget.dart';
-import 'package:country_phone_code_picker/models/country.dart';
 import 'package:flutter/material.dart';
 import 'package:task_i/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:task_i/features/Auth/presentation/widgets/shared_form.dart';
@@ -20,7 +17,10 @@ class AddPhoneForm extends StatelessWidget {
       title: '',
       textInputType: TextInputType.phone,
       prefix: CountryListPick(
-        theme: CountryTheme(isShowTitle: false, initialSelection: '+20'),
+        theme: CountryTheme(
+          isShowTitle: false,
+          initialSelection: '+20',
+        ),
         initialSelection: '+20',
         onChanged: (CountryCode? code) {
           log(code!.code.toString());

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:task_i/core/utilities/colors.dart';
@@ -15,7 +13,6 @@ class VerificationScreen extends StatelessWidget {
         VerificationCode(
           onCompleted: (val) {
             AuthCubit.get(context).otpString = val;
-            // log(AuthCubit.get(context).otpString);
           },
           onEditing: (val) {},
           keyboardType: TextInputType.number,

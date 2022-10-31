@@ -20,28 +20,6 @@ class AuthHeader extends StatelessWidget {
         children: [
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
-              if (state is ChangeStepState) {
-                return Positioned(
-                  left: 0,
-                  right: 0,
-                  top: 20,
-                  bottom: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: LinearPercentIndicator(
-                      alignment: MainAxisAlignment.center,
-                      width: size.width / 2,
-                      animation: true,
-                      lineHeight: 8.0,
-                      animationDuration: 400,
-                      percent: state.currentStep / 4,
-                      barRadius: const Radius.circular(16),
-                      progressColor: AppColors.primary,
-                      backgroundColor: const Color(0xFF8CC540).withOpacity(0.3),
-                    ),
-                  ),
-                );
-              }
               return Positioned(
                 left: 0,
                 right: 0,
@@ -55,7 +33,7 @@ class AuthHeader extends StatelessWidget {
                     animation: true,
                     lineHeight: 8.0,
                     animationDuration: 400,
-                    percent: 1 / 4,
+                    percent: AuthCubit.get(context).currentStep / 4,
                     barRadius: const Radius.circular(16),
                     progressColor: AppColors.primary,
                     backgroundColor: const Color(0xFF8CC540).withOpacity(0.3),
@@ -70,15 +48,17 @@ class AuthHeader extends StatelessWidget {
             bottom: 0,
             child: BlocBuilder<AuthCubit, AuthState>(
               builder: (context, state) {
-                return IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 18,
-                  ),
-                  onPressed: () {
-                    AuthCubit.get(context).changStepToBack();
-                  },
-                );
+                return AuthCubit.get(context).hulfStep == 1.0
+                    ? const SizedBox.shrink()
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 18,
+                        ),
+                        onPressed: () {
+                          AuthCubit.get(context).changStepToBack();
+                        },
+                      );
               },
             ),
           ),

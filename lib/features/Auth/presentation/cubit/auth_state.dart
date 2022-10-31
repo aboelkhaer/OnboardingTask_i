@@ -24,3 +24,7 @@ class ChangeStepState extends AuthState {
 class OtpSuccessLoadingState extends AuthState {}
 
 class OtpSuccessLoadedState extends AuthState {}
+
+class LoadingUserDataState extends AuthState {}
+
+class LoadedUserDataState extends AuthState {}
